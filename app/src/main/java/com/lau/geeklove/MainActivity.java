@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 String item = adapterView.getItemAtPosition(i).toString();
                 switch (item) {
                     case "Java":
@@ -66,18 +67,24 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 itemName = item;
-                Toast.makeText(getApplicationContext(), "Item: " + item, Toast.LENGTH_LONG).show();
-
             }
         });
 
     }
-    public void calculator(View v){
-        String name = nameInput.getText().toString();
-        Random rand = new Random();
-        int random = rand.nextInt(101);
-        txtView.setText("The relationship between " + name + " and " + itemName  + " contain " + random + "% love!" );
-        imageView.setVisibility(ImageView.VISIBLE);
 
+    public void calculator(View v) {
+        if (itemName == null) {
+            Toast.makeText(getApplicationContext(), "Select a language!", Toast.LENGTH_LONG).show();
+        } else {
+            String name = nameInput.getText().toString();
+            if (name.equals("")) {
+                Toast.makeText(getApplicationContext(), "Enter a Name!", Toast.LENGTH_LONG).show();
+            } else {
+                Random rand = new Random();
+                int random = rand.nextInt(101);
+                txtView.setText("The relationship between " + name + " and " + itemName + " is based on " + random + "% true love!");
+                imageView.setVisibility(ImageView.VISIBLE);
+            }
+        }
     }
 }
