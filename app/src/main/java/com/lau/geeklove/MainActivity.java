@@ -49,21 +49,27 @@ public class MainActivity extends AppCompatActivity {
                 switch (item) {
                     case "Java":
                         imageView.setImageResource(R.drawable.java);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                     case "Python":
                         imageView.setImageResource(R.drawable.python);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                     case "Swift":
                         imageView.setImageResource(R.drawable.swift);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                     case "C#":
                         imageView.setImageResource(R.drawable.csharp);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                     case "Ruby":
                         imageView.setImageResource(R.drawable.ruby);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                     case "Kotlin":
                         imageView.setImageResource(R.drawable.kotlin);
+                        imageView.animate().rotationBy(360).setDuration(2000).start();
                         break;
                 }
                 itemName = item;
@@ -83,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 Random rand = new Random();
                 int random = rand.nextInt(101);
                 txtView.setText("The relationship between " + name + " and " + itemName + " is based on " + random + "% true love!");
-                imageView.setVisibility(ImageView.VISIBLE);
             }
         }
     }
