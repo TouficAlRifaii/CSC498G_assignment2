@@ -10,7 +10,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String [] languages= {"Java" , "Python" , "Swift" , "Ruby" , "C#" , "Kotlin"};
+    String [] languages= {"Java" , "Python" , "Swift" , "Ruby" , "C Sharp" , "Kotlin"};
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter <String> adapterItem ;
 
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(),"Item: " + item , Toast.LENGTH_LONG).show();
+                Language lang = new Language(item);
+                Toast.makeText(getApplicationContext(),"Item: " + lang.getName() , Toast.LENGTH_LONG).show();
             }
         });
 

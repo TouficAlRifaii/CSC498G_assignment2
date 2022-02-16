@@ -6,7 +6,7 @@ public class Language {
 
     public Language(String name){
         this.name = name;
-        this.src = name +".jpg";
+        this.src = name.toLowerCase().replaceAll(" " , "") +".jpg";
     }
     public String getName(){
         return name;
