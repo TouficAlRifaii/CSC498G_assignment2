@@ -10,7 +10,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String [] languages= {"Java" , "Python" , "SQL" , "Ruby" , "CSS" , "Kotlin"};
+    String [] languages= {"Java" , "Python" , "Swift" , "Ruby" , "C#" , "Kotlin"};
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter <String> adapterItem ;
 
