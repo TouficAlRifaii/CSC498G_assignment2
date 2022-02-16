@@ -1,22 +1,30 @@
 package com.lau.geeklove;
 
-import static android.os.SystemClock.sleep;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     String[] languages = {"Java", "Python", "Swift", "Ruby", "C#", "Kotlin"};
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItem;
     ImageView imageView;
+    EditText nameInput;
+    Button button;
+    String itemName;
+    TextView txtView;
 
 
     @Override
@@ -29,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         adapterItem = new ArrayAdapter<String>(this, R.layout.list_item, languages);
         autoCompleteTxt.setAdapter(adapterItem);
         imageView = findViewById(R.id.imageView);
+        nameInput = (EditText) findViewById(R.id.nameInput);
+        button = findViewById(R.id.button);
+        txtView = findViewById(R.id.textView);
 
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,10 +65,19 @@ public class MainActivity extends AppCompatActivity {
                         imageView.setImageResource(R.drawable.kotlin);
                         break;
                 }
-                imageView.setVisibility(ImageView.VISIBLE);
+                itemName = item;
                 Toast.makeText(getApplicationContext(), "Item: " + item, Toast.LENGTH_LONG).show();
+
             }
         });
+
+    }
+    public void calculator(View v){
+        String name = nameInput.getText().toString();
+        Random rand = new Random();
+        int random = rand.nextInt(101);
+        txtView.setText("The relationship between " + name + " and " + itemName  + " contain " + random + "% love!" );
+        imageView.setVisibility(ImageView.VISIBLE);
 
     }
 }
