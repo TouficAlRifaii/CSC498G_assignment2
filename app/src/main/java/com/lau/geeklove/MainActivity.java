@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,10 +31,68 @@ public class MainActivity extends AppCompatActivity {
     EditText nameInput;
     Button button;
     String itemName;
-    TextView txtView;
+//    TextView r1col0;
+//    TextView r1col1;
+//    TextView r1col2;
+//    TextView r2col0;
+//    TextView r2col1;
+//    TextView r2col2;
+//    TextView r3col0;
+//    TextView r3col1;
+//    TextView r3col2;
+//    TextView r4col0;
+//    TextView r4col1;
+//    TextView r4col2;
+//    TextView r5col0;
+//    TextView r5col1;
+//    TextView r5col2;
+//    TextView r6col0;
+//    TextView r6col1;
+//    TextView r6col2;
+    boolean[] isFilled;
+
     TableLayout table;
     ArrayList<String[]> forTable;
 
+//    public void clearTable() {
+//        r1col0 = findViewById(R.id.r1col0);
+//        r1col1 = findViewById(R.id.r1col1);
+//        r1col2 = findViewById(R.id.r1col2);
+//        r2col0 = findViewById(R.id.r2col0);
+//        r2col1 = findViewById(R.id.r2col1);
+//        r2col2 = findViewById(R.id.r2col2);
+//        r3col0 = findViewById(R.id.r3col0);
+//        r3col1 = findViewById(R.id.r3col1);
+//        r3col2 = findViewById(R.id.r3col2);
+//        r4col0 = findViewById(R.id.r4col0);
+//        r4col1 = findViewById(R.id.r4col1);
+//        r4col2 = findViewById(R.id.r4col2);
+//        r5col0 = findViewById(R.id.r5col0);
+//        r5col1 = findViewById(R.id.r5col1);
+//        r5col2 = findViewById(R.id.r5col2);
+//        r6col0 = findViewById(R.id.r6col0);
+//        r6col1 = findViewById(R.id.r6col1);
+//        r6col2 = findViewById(R.id.r6col2);
+//        r1col0.setText("");
+//        r1col1.setText("");
+//        r1col2.setText("");
+//        r2col0.setText("");
+//        r2col1.setText("");
+//        r2col2.setText("");
+//        r3col0.setText("");
+//        r3col1.setText("");
+//        r3col2.setText("");
+//        r4col0.setText("");
+//        r4col1.setText("");
+//        r4col2.setText("");
+//        r5col0.setText("");
+//        r5col1.setText("");
+//        r5col2.setText("");
+//        r6col0.setText("");
+//        r6col1.setText("");
+//        r6col2.setText("");
+//
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +106,31 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         nameInput = (EditText) findViewById(R.id.nameInput);
         button = findViewById(R.id.button);
-
         table = (TableLayout) findViewById(R.id.table);
         forTable = new ArrayList<String[]>();
+//        r1col0 = findViewById(R.id.r1col0);
+//        r1col1 = findViewById(R.id.r1col1);
+//        r1col2 = findViewById(R.id.r1col2);
+//        r2col0 = findViewById(R.id.r2col0);
+//        r2col1 = findViewById(R.id.r2col1);
+//        r2col2 = findViewById(R.id.r2col2);
+//        r3col0 = findViewById(R.id.r3col0);
+//        r3col1 = findViewById(R.id.r3col1);
+//        r3col2 = findViewById(R.id.r3col2);
+//        r4col0 = findViewById(R.id.r4col0);
+//        r4col1 = findViewById(R.id.r4col1);
+//        r4col2 = findViewById(R.id.r4col2);
+//        r5col0 = findViewById(R.id.r5col0);
+//        r5col1 = findViewById(R.id.r5col1);
+//        r5col2 = findViewById(R.id.r5col2);
+//        r6col0 = findViewById(R.id.r6col0);
+//        r6col1 = findViewById(R.id.r6col1);
+//        r6col2 = findViewById(R.id.r6col2);
+        isFilled = new boolean[6];
+        for (int i = 0; i < isFilled.length; i++) {
+            isFilled[i] = false;
+        }
+
 
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,25 +179,39 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Random rand = new Random();
                 int random = rand.nextInt(101);
-                String[] toAdd= {name , itemName , String.valueOf(random)};
-                forTable.add(0 , toAdd);
-                TextView col0 = new TextView(this);
-                col0.setText(forTable.get(0)[0]);
-                col0.setTextColor(Color.BLACK);
-                ViewGroup.LayoutParams paramsCol0 = col0.getLayoutParams();
-                col0.setPadding(14 ,14 , 14 ,14);
-                TextView col1 = new TextView(this);
-                col1.setText(forTable.get(0)[1]);
-                TextView col2 = new TextView(this);
-                col2.setText(forTable.get(0)[2]);
+//                if (isFilled[isFilled.length - 1]) {
+//                    Toast.makeText(getApplicationContext(), "The table will be cleared", Toast.LENGTH_LONG).show();
+////                    clearTable();
+//                }
+//                if (!isFilled[0]) {
+//                    r1col0.setText(name);
+//                    r1col1.setText(itemName);
+//                    r1col2.setText(random);
+//                }
                 TableRow row = new TableRow(this);
-                ViewGroup.LayoutParams params = row.getLayoutParams();
+                row.setLayoutParams(new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.MATCH_PARENT));
+                TextView col0 = new TextView(this);
+                col0.setText(name);
+                col0.setGravity(Gravity.CENTER_HORIZONTAL);
+                col0.setPadding(160 , 10 ,200 , 10);
+                col0.setTextColor(Color.BLACK);
+                col0.setTextSize(14);
                 row.addView(col0);
+                TextView col1 = new TextView(this);
+                col1.setText(itemName);
+                col1.setGravity(Gravity.CENTER_HORIZONTAL);
+                col1.setPadding(170 , 10 ,150 , 10);
+                col1.setTextColor(Color.BLACK);
+                col1.setTextSize(14);
                 row.addView(col1);
+                TextView col2 = new TextView(this);
+                col2.setText(String.valueOf(random));
+                col2.setGravity(Gravity.CENTER_HORIZONTAL);
+                col2.setPadding(160 , 10 ,180 , 10);
+                col2.setTextColor(Color.BLACK);
+                col2.setTextSize(14);
                 row.addView(col2);
                 table.addView(row);
-
-
             }
         }
     }
