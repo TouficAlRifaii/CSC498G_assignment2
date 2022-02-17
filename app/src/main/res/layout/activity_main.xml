@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_red_dark"
+    android:background="@color/beige"
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -13,7 +13,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/pink_dark"
         android:hint="@string/select"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +50,7 @@
         android:ems="10"
         android:hint="Enter Your Name"
         android:inputType="textPersonName"
+        android:background="@color/pink_light"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="53dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/pink_light"
         android:onClick="calculator"
         android:text="Calculate"
         android:textColor="@color/black"
@@ -80,7 +81,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:background="@color/white"
+        android:background="@color/reddish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

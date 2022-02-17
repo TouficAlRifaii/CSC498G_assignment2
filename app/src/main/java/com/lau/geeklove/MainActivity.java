@@ -32,14 +32,16 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     String itemName;
     TableLayout table;
+    int count;
+    ArrayList<TableRow> rows;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        count=0 ;
+        rows = new ArrayList<TableRow>();
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
         adapterItem = new ArrayAdapter<String>(this, R.layout.list_item, languages);
         autoCompleteTxt.setAdapter(adapterItem);
@@ -92,6 +94,16 @@ public class MainActivity extends AppCompatActivity {
             if (name.equals("")) {
                 Toast.makeText(getApplicationContext(), "Enter a Name!", Toast.LENGTH_LONG).show();
             } else {
+                if (count >=13 ){
+                    while (count>0){
+                        TableRow toDelete = rows.get(0);
+                        table.removeView(toDelete);
+                        rows.remove(0);
+                        count--;
+                    }
+
+
+                }
                 Random rand = new Random();
                 int random = rand.nextInt(101);
                 TableRow row = new TableRow(this);
@@ -118,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
                 col2.setTextSize(14);
                 row.addView(col2);
                 table.addView(row);
+                rows.add(row);
+                count ++;
+
             }
         }
     }
