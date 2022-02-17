@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">GeekLove</string>
     <string name="select">Choose a Language</string>
+    <string name="col0">Name</string>
+    <string name="col1">Language</string>
+    <string name="col2">Love %</string>
 
 </resources>
